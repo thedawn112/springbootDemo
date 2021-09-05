@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.TbClientMapper">
+    <select id="selectClientByClientId" resultType="com.example.demo.entity.TbClient" parameterType="integer">
+        select *
+        from tbclient
+        where clientid = #{clientid}
+    </select>
+    <insert id="insertClient" parameterType="com.example.demo.entity.TbClient">
+        insert into TbClient (clientid, clientname, clientsex, clientnation, clientbirthdayaddress, identityid, address,
+                              reserve1, reserve2, reserve3, reserve4)
+        values (#{clientid}, #{clientname}, #{clientsex}, #{clientnation}, #{clientbirthdayaddress}, #{identityid},
+                #{address}, #{reserve1}, #{reserve2}, #{reserve3}, #{reserve4})
+    </insert>
+</mapper>
