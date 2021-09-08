@@ -78,3 +78,21 @@ body {
     padding-top: 2%;
     padding-left: 4%;
 }
+
+.register-body-div{
+    height: 60%;
+    width: 40%;
+    position: absolute;
+    background-color: rgba(33, 49, 49, 0.486);
+    left: 33%;
+    margin-top: 2%;
+}
+
+.register-body-div-inner{
+    padding-top: 6%;
+    height: 100%;
+    width: 25%;
+}
+.test-color{
+    background-color: black;
+}

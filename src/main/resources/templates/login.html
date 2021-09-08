@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="/static/Bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/static/css/my.css">
 </head>
+
 <body>
 <div class="mycss-login-div">
     <!-- 导航begin -->
@@ -45,8 +47,8 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Action</a></li>
                             <li><a href="#">Another action</a></li>
@@ -62,21 +64,27 @@
     <!-- 导航end -->
     <!-- 中间部分begin -->
     <div id="center-panel" class="mycss-login-div-form">
-        <form id="center-panel-form" class="mycss-login-form">
-            <h2 class="h2-login-top mycss-login-h2-2">用户登录</h2>
-            <div class="login_box mycss-login-h2">
-                <input id="login_name" type="text">
-                <label>用户名</label>
-            </div>
-            <div class="login_box mycss-login-h2-1">
-                <input id="login_password" type="password">
-                <label>密码</label>
-            </div>
-            <div class="mycss-login-body-button">
-                <button id="login_buttun" type="button" class="btn btn-default">登录</button>
-                <button id="regester_button" type="button" class="btn btn-default">注册</button>
-            </div>
-        </form>
+        <div class="container register-body-div-inner">
+            <form class="form-signin">
+                <h2 class="form-signin-heading" style="color: rgb(103, 126, 63);text-align: center;">用户登录</h2>
+                <label for="login_name" class="sr-only">User name</label>
+                <input type="text" id="login_name" class="form-control" placeholder="User name" required=""
+                       autofocus="">
+                <label for="login_password" class="sr-only">Password</label>
+                <input type="password" id="login_password" class="form-control" placeholder="Password" required="">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <div>
+                    <button id="login-button" class="btn btn-lg btn-primary" type="submit"
+                            style="margin-right: 14%;margin-left: 7%;">Sign in
+                    </button>
+                    <button id="register-button" class="btn btn-lg btn-primary" type="submit">Sign up</button>
+                </div>
+            </form>
+        </div>
     </div>
     <!-- 中间部分end -->
     <!-- 结尾begin -->
@@ -108,4 +116,5 @@
 <script src="/static/Bootstrap/js/bootstrap.js"></script>
 <script src="/static/js/my.js"></script>
 </body>
+
 </html>
