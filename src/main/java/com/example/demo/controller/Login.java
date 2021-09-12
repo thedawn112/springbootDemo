@@ -25,4 +25,9 @@ public class Login {
         logger.info(username + "...." + password);
         return null;
     }
+
+    @RequestMapping("/register.html")
+    public ModelAndView register() {
+        return new ModelAndView("register.html");
+    }
 }
