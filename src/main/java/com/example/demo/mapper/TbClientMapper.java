@@ -10,5 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TbClientMapper {
     TbClient selectClientByClientId(int clientid);
+
     void insertClient(TbClient tbClient);
 }

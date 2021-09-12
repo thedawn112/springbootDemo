@@ -23,4 +23,18 @@ public class UserService {
         logger.debug(userMapper.selectUserByUserId(id).toString());
         return userMapper.selectUserByUserId(id);
     }
+
+    public String login(String username, String password) {
+        int i = userMapper.selectUserByUserName(username);
+        if (i == 0) {
+            //注册
+            return "请先注册";
+        } else if (i == 1) {
+            //登录成功
+            return "0";
+        } else {
+            //系统业务错误
+            return "-1";
+        }
+    }
 }

@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -14,7 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/ranmao")
 public class Login {
     private static final Logger logger = LoggerFactory.getLogger(Login.class);
+    @Autowired
+    UserService userService;
 
+    //登录界面
     @RequestMapping("/login.html")
     public ModelAndView login() {
         return new ModelAndView("login.html");
@@ -22,10 +27,12 @@ public class Login {
 
     @RequestMapping(value = "/loginIn", produces = "text/plain;charset=utf-8", method = RequestMethod.GET)
     public String loginIn(String username, String password) {
-        logger.info(username + "...." + password);
-        return null;
+        String login = userService.login(username, password);
+        logger.info(username + "...." + password + ".........." + login);
+        return login;
     }
 
+    //注册界面
     @RequestMapping("/register.html")
     public ModelAndView register() {
         return new ModelAndView("register.html");

@@ -15,8 +15,9 @@ $("#login_buttun").click(function () {
     }
 });
 //获取登录界面
-$("#regester_button").click(function () {
-    getRegisterPage();
+$("#register_button").click(function () {
+    window.location.href="../ranmao/register.html";
+    return false;
 });
 
 function getRegisterPage() {
