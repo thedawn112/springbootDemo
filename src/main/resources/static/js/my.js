@@ -1,9 +1,5 @@
-//bootstrap初始化弹出框插件
-$(function () {
-    $('[data-toggle="popover"]').popover()
-});
 //登录按钮发送后头登录用户
-$("#login_buttun").click(function () {
+$("#login_button").click(function () {
     var LoginName = document.getElementById("login_name").value;
     var LoginPassword = document.getElementById("login_password").value;
     var ErrorInfo = null;
@@ -15,13 +11,19 @@ $("#login_buttun").click(function () {
     } else {
         var data = "username=" + LoginName + "&password=" + LoginPassword;
         var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                ErrorInfo = this.responseText;
+                alert(ErrorInfo);
+            }
+        };
         xhttp.open("GET", "/ranmao/loginIn?" + data, true);
         xhttp.send();
     }
 });
 //获取注册界面
 $("#register_button").click(function () {
-    window.location.href="../ranmao/register.html";
+    window.location.href = "../ranmao/register.html";
     return false;
 });
 

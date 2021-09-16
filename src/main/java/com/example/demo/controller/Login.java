@@ -19,7 +19,9 @@ public class Login {
     @Autowired
     UserService userService;
 
-    //登录界面
+    /**
+     * 登陆界面
+     */
     @RequestMapping("/login.html")
     public ModelAndView login() {
         return new ModelAndView("login.html");
@@ -28,11 +30,12 @@ public class Login {
     @RequestMapping(value = "/loginIn", produces = "text/plain;charset=utf-8", method = RequestMethod.GET)
     public String loginIn(String username, String password) {
         String login = userService.login(username, password);
-        logger.info(username + "...." + password + ".........." + login);
         return login;
     }
 
-    //注册界面
+    /**
+     * 注册界面
+     */
     @RequestMapping("/register.html")
     public ModelAndView register() {
         return new ModelAndView("register.html");

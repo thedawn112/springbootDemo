@@ -14,9 +14,17 @@
 
     <select id="selectUserByUserId" resultType="com.example.demo.entity.User" parameterType="integer">
         select *
-        from user
-        where user_id = #{id}
+        from useraccount
+        where userid = #{id}
     </select>
-
+    <select id="selectUserByUserName" resultType="integer">
+        select count(*)
+        from useraccount
+        where username = #{name}
+    </select>
+    <insert id="inserIntoUser" parameterType="com.example.demo.entity.User">
+        insert into useraccount (userid, username, userpassword, status, reserve1, reserve2, reserve3, reserve4)
+        values (#{userid}, #{username}, #{userpassword}, #{status}, #{reserve1}, #{reserve2}, #{reserve3}, #{reserve4})
+    </insert>
 
 </mapper>
