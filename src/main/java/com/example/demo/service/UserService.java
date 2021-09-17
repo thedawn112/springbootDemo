@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+
 @Service
 public class UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
@@ -36,5 +38,18 @@ public class UserService {
             //系统业务错误
             return "-1";
         }
+    }
+
+    /**
+     * 注册方法
+     */
+    public String register(String username, String password) {
+        User user = new User();
+        try {
+            userMapper.inserIntoUser(user);
+        } catch (Exception e) {
+            new IOException("写入数据库报错");
+        }
+        return "注册成功";
     }
 }

@@ -40,4 +40,9 @@ public class Login {
     public ModelAndView register() {
         return new ModelAndView("register.html");
     }
+
+    @RequestMapping(value = "/registerIn", produces = "text/plain;charset=utf-8", method = RequestMethod.GET)
+    public String registerIn(String userName, String passWord) {
+        return null;
+    }
 }

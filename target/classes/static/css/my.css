@@ -79,7 +79,7 @@ body {
     padding-left: 4%;
 }
 
-.register-body-div{
+.register-body-div {
     height: 60%;
     width: 40%;
     position: absolute;
@@ -88,11 +88,12 @@ body {
     margin-top: 2%;
 }
 
-.register-body-div-inner{
+.register-body-div-inner {
     padding-top: 6%;
     height: 100%;
     width: 25%;
 }
-.test-color{
+
+.test-color {
     background-color: black;
 }

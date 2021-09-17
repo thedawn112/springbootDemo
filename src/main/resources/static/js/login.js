@@ -27,7 +27,4 @@ $("#register_button").click(function () {
     return false;
 });
 
-function getRegisterPage() {
-    document.getElementById("center-panel-form").innerHTML = "<h1>haha</h1>"
-};
 
