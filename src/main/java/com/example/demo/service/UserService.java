@@ -9,8 +9,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
+/**
+ * @author ranmao
+ */
 @Service
 public class UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
@@ -45,11 +50,33 @@ public class UserService {
      */
     public String register(String username, String password) {
         User user = new User();
+        user.setUser_id(createUserId(username));
+        user.setUser_name(username);
+        user.setUser_password(password);
+        user.setStatus("1");
+        user.setReserve1("nothing");
+        user.setReserve2("nothing");
+        user.setReserve3("nothing");
+        user.setReserve4("nothing");
+        List userList;
         try {
-            userMapper.inserIntoUser(user);
+            userList = userMapper.selectUserByNamePassWord(username, password);
+            if (userList.size() == 0) {
+                userMapper.inserIntoUser(user);
+            }
         } catch (Exception e) {
-            new IOException("写入数据库报错");
+            logger.debug("数据库操作报错，请查看");
         }
         return "注册成功";
+    }
+    /**
+     * 生成唯一用户号
+     * */
+    public static long createUserId(String username){
+        String hash = String.valueOf(username.hashCode()).substring(0,5);
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddhhmmss");
+        String format1 = format.format(new Date());
+        long userId = Long.parseLong(format1 + hash);
+        return userId;
     }
 }

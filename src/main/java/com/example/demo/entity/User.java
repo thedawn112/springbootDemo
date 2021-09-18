@@ -1,36 +1,37 @@
 package com.example.demo.entity;
 
 public class User {
-    private Integer user_id;
+    private Long user_id;
     private String user_name;
-    private Integer user_password;
+    private String user_password;
     private String status;
     private String reserve1;
     private String reserve2;
     private String reserve3;
+    private String reserve4;
 
-    public int getUserId() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUserId(int userId) {
-        this.user_id = userId;
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
     }
 
-    public String getUserName() {
+    public String getUser_name() {
         return user_name;
     }
 
-    public void setUserName(String userName) {
-        this.user_name = userName;
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 
-    public int getUserPassword() {
+    public String getUser_password() {
         return user_password;
     }
 
-    public void setUserPassword(int userPassword) {
-        this.user_password = userPassword;
+    public void setUser_password(String user_password) {
+        this.user_password = user_password;
     }
 
     public String getStatus() {
@@ -65,16 +66,25 @@ public class User {
         this.reserve3 = reserve3;
     }
 
+    public String getReserve4() {
+        return reserve4;
+    }
+
+    public void setReserve4(String reserve4) {
+        this.reserve4 = reserve4;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "userId=" + user_id +
-                ", userName='" + user_name + '\'' +
-                ", userPassword=" + user_password +
+                "user_id=" + user_id +
+                ", user_name='" + user_name + '\'' +
+                ", user_password='" + user_password + '\'' +
                 ", status='" + status + '\'' +
                 ", reserve1='" + reserve1 + '\'' +
                 ", reserve2='" + reserve2 + '\'' +
                 ", reserve3='" + reserve3 + '\'' +
+                ", reserve4='" + reserve4 + '\'' +
                 '}';
     }
 }

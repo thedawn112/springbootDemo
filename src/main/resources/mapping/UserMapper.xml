@@ -10,6 +10,7 @@
         <result column="reserve1" jdbcType="VARCHAR" property="reserve1"/>
         <result column="reserve2" jdbcType="VARCHAR" property="reserve2"/>
         <result column="reserve3" jdbcType="VARCHAR" property="reserve3"/>
+        <result column="reserve4" jdbcType="VARCHAR" property="reserve4"/>
     </resultMap>
 
     <select id="selectUserByUserId" resultType="com.example.demo.entity.User" parameterType="integer">
@@ -26,5 +27,10 @@
         insert into useraccount (userid, username, userpassword, status, reserve1, reserve2, reserve3, reserve4)
         values (#{userid}, #{username}, #{userpassword}, #{status}, #{reserve1}, #{reserve2}, #{reserve3}, #{reserve4})
     </insert>
-
+    <select id="selectUserByNamePassWord" parameterType="string" resultType="list">
+        select *
+        from useraccount
+        where username = #{username}
+          and userpassword = #{password}
+    </select>
 </mapper>
