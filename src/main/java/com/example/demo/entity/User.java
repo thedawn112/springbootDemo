@@ -1,37 +1,37 @@
 package com.example.demo.entity;
 
 public class User {
-    private Long user_id;
-    private String user_name;
-    private String user_password;
+    private Long userid;
+    private String username;
+    private String userpassword;
     private String status;
     private String reserve1;
     private String reserve2;
     private String reserve3;
     private String reserve4;
 
-    public Long getUser_id() {
-        return user_id;
+    public Long getUserid() {
+        return userid;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setUserid(Long userid) {
+        this.userid = userid;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getUser_password() {
-        return user_password;
+    public String getUserpassword() {
+        return userpassword;
     }
 
-    public void setUser_password(String user_password) {
-        this.user_password = user_password;
+    public void setUserpassword(String userpassword) {
+        this.userpassword = userpassword;
     }
 
     public String getStatus() {
@@ -77,9 +77,9 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "user_id=" + user_id +
-                ", user_name='" + user_name + '\'' +
-                ", user_password='" + user_password + '\'' +
+                "userid=" + userid +
+                ", username='" + username + '\'' +
+                ", userpassword='" + userpassword + '\'' +
                 ", status='" + status + '\'' +
                 ", reserve1='" + reserve1 + '\'' +
                 ", reserve2='" + reserve2 + '\'' +

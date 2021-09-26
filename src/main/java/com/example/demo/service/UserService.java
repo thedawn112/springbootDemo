@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,6 +25,7 @@ public class UserService {
     @Autowired
     TbClientMapper tbClientMapper;
 
+    @Transactional
     public User selectUser(int id) {
         AddClient addClient = new AddClient();
         tbClientMapper.insertClient(addClient.getClient());
@@ -31,6 +33,7 @@ public class UserService {
         return userMapper.selectUserByUserId(id);
     }
 
+    @Transactional
     public String login(String username, String password) {
         int i = userMapper.selectUserByUserName(username);
         if (i == 0) {
@@ -48,32 +51,34 @@ public class UserService {
     /**
      * 注册方法
      */
+    @Transactional
     public String register(String username, String password) {
         User user = new User();
-        user.setUser_id(createUserId(username));
-        user.setUser_name(username);
-        user.setUser_password(password);
+        user.setUserid(createUserId(username));
+        user.setUsername(username);
+        user.setUserpassword(password);
         user.setStatus("1");
         user.setReserve1("nothing");
         user.setReserve2("nothing");
         user.setReserve3("nothing");
         user.setReserve4("nothing");
         List userList;
-        try {
-            userList = userMapper.selectUserByNamePassWord(username, password);
-            if (userList.size() == 0) {
-                userMapper.inserIntoUser(user);
-            }
-        } catch (Exception e) {
-            logger.debug("数据库操作报错，请查看");
+        //      try {
+        userList = userMapper.selectUserByNamePassWord(username, password);
+        if (userList.size() == 0) {
+            userMapper.inserIntoUser(user);
         }
+//        } catch (Exception e) {
+//            logger.debug("数据库操作报错，请查看");
+//        }
         return "注册成功";
     }
+
     /**
      * 生成唯一用户号
-     * */
-    public static long createUserId(String username){
-        String hash = String.valueOf(username.hashCode()).substring(0,5);
+     */
+    public static long createUserId(String username) {
+        String hash = String.valueOf(username.hashCode()).substring(0, 5);
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMddhhmmss");
         String format1 = format.format(new Date());
         long userId = Long.parseLong(format1 + hash);

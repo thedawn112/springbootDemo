@@ -3,13 +3,14 @@
 <mapper namespace="com.example.demo.mapper.UserMapper">
 
     <resultMap id="BaseResultMap" type="com.example.demo.entity.User">
-        <result column="user_id" jdbcType="INTEGER" property="user_id"/>
-        <result column="user_name" jdbcType="VARCHAR" property="user_name"/>
-        <result column="user_password" jdbcType="INTEGER" property="user_password"/>
+        <result column="userid" jdbcType="INTEGER" property="userid"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="userpassword" jdbcType="INTEGER" property="userpassword"/>
         <result column="status" jdbcType="VARCHAR" property="status"/>
         <result column="reserve1" jdbcType="VARCHAR" property="reserve1"/>
         <result column="reserve2" jdbcType="VARCHAR" property="reserve2"/>
         <result column="reserve3" jdbcType="VARCHAR" property="reserve3"/>
+        <result column="reserve4" jdbcType="VARCHAR" property="reserve4"/>
     </resultMap>
 
     <select id="selectUserByUserId" resultType="com.example.demo.entity.User" parameterType="integer">
