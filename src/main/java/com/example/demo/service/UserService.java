@@ -33,6 +33,9 @@ public class UserService {
         return userMapper.selectUserByUserId(id);
     }
 
+    /**
+     * 用户登录
+     * */
     @Transactional
     public String login(String username, String password) {
         int i = userMapper.selectUserByUserName(username);

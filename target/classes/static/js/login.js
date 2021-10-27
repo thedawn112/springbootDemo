@@ -1,0 +1,30 @@
+//登录按钮发送后头登录用户
+$("#login_button").click(function () {
+    var LoginName = document.getElementById("login_name").value;
+    var LoginPassword = document.getElementById("login_password").value;
+    var ErrorInfo = null;
+    //如果登录名或登录密码为空时，不允许登录
+    if (LoginName == null || LoginPassword == null) {
+        alert("密码不能为空");
+    } else if (LoginName.length >= 20 || LoginName.length <= 6) {
+        alert("登录名称的数量不符合要求，请在6到20个字符之内")
+    } else {
+        var data = "username=" + LoginName + "&password=" + LoginPassword;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                ErrorInfo = this.responseText;
+                alert(ErrorInfo);
+            }
+        };
+        xhttp.open("GET", "/ranmao/loginIn?" + data, true);
+        xhttp.send();
+    }
+});
+//获取注册界面
+$("#register_button").click(function () {
+    window.location.href = "../ranmao/register.html";
+    return false;
+});
+
+

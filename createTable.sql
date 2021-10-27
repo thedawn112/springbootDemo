@@ -41,3 +41,16 @@ CREATE TABLE `useraccount`
     `reserve4`     varchar(50) DEFAULT NULL COMMENT '备用字段4',
     PRIMARY KEY (`userid`, `username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- 测试表
+CREATE TABLE `test_user`
+(
+    `id`           int NOT NULL AUTO_INCREMENT,
+    `card`         varchar(32) DEFAULT NULL COMMENT '编号',
+    `name`         varchar(32) DEFAULT NULL COMMENT '姓名',
+    `equipment_id` int         DEFAULT NULL COMMENT '设备id',
+    `area_id`      int         DEFAULT NULL COMMENT '区域ID',
+    `start_time`   datetime    DEFAULT NULL COMMENT '开始时间',
+    `end_time`     datetime    DEFAULT NULL COMMENT '结束时间',
+    `ifdel`        int         DEFAULT '0' COMMENT '0:使用，1：已移除',
+    PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='用户管理';

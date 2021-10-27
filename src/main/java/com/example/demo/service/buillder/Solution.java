@@ -1,5 +1,7 @@
 package com.example.demo.service.buillder;
 
+import java.util.Date;
+
 /**
  * @author ranran.mao
  * @date 2021/8/25 17:26
@@ -20,5 +22,20 @@ public class Solution {
         int target=2;
         int search = solution.search(nums, target);
         System.out.println(search);
+        Date nextDay = Solution.getNextDay();
+        System.out.println(nextDay.toString());
+    }
+
+    /**
+     * 获取下一个日期时间
+     * @return
+     */
+    public static Date getNextDay(){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new Date();
     }
 }
