@@ -43,7 +43,15 @@ public class Login {
 
     @RequestMapping(value = "/registerIn", produces = "text/plain;charset=utf-8", method = RequestMethod.GET)
     public String registerIn(String userName, String passWord) {
-        userService.register(userName,passWord);
+        userService.register(userName, passWord);
         return "注册成功";
+    }
+
+    /**
+     * 管理台界面
+     */
+    @RequestMapping("/manage.html")
+    public ModelAndView management() {
+        return new ModelAndView("manage.html");
     }
 }

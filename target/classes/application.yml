@@ -1,20 +1,38 @@
+#服务器配置
 server:
   port: 8080
 
 spring:
+  #数据库配置
   datasource:
     username: root
     password: 123456
     url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
+  #web相关配置
   web:
     resources:
       static-locations: classpath:/
-
+  #redis相关配置
+  redis:
+    host: localhost
+    password:
+    port: 6379
+    database: 0
+    jedis:
+      pool:
+        max-active: 200
+        max-wait: -1
+        max-idle: 10
+        min-idle: 0
+    connect-timeout: 6000
+#mybatis相关配置
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.example.demo.entity
-
+#日志级别配置
 logging:
   level:
     com.example.demo: debug
+#文件存储路径
+filepath: F:\学习资料\Java学习资料
