@@ -1,6 +1,9 @@
 package com.example.demo.service.buillder;
 
 import com.example.demo.entity.TbClient;
+import redis.clients.jedis.Jedis;
+
+import java.util.Set;
 
 /**
  * @author ranran.mao
@@ -21,5 +24,15 @@ public class AddClient {
         tbClient.setReserve3("");
         tbClient.setReserve4("");
         return tbClient;
+    }
+
+    public static void main(String[] args) {
+        Jedis jedis = new Jedis("localhost", 6379);
+        Set<String> keys = jedis.keys("*");
+        for (String s:keys
+             ) {
+            System.out.println(s);
+        }
+        //jedis.flushDB();
     }
 }

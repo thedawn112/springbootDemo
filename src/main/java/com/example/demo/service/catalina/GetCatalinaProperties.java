@@ -59,7 +59,7 @@ public class GetCatalinaProperties {
             StringBuilder builder = new StringBuilder();
             int pos_end = -1;
             while (pos_start >= 0) {
-                builder.append(str, pos_end + 1, pos_start);//
+                builder.append(str, pos_end + 1, pos_start);
             }
         }
         return str;

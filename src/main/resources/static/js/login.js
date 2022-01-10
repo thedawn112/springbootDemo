@@ -2,6 +2,7 @@
 $("#login_button").click(function () {
     var LoginName = document.getElementById("login_name").value;
     var LoginPassword = document.getElementById("login_password").value;
+    alert(LoginPassword);
     var ErrorInfo = null;
     //如果登录名或登录密码为空时，不允许登录
     if (LoginName == null || LoginPassword == null) {

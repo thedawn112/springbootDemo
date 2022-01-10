@@ -27,10 +27,15 @@
         insert into useraccount (userid, username, userpassword, status, reserve1, reserve2, reserve3, reserve4)
         values (#{userid}, #{username}, #{userpassword}, #{status}, #{reserve1}, #{reserve2}, #{reserve3}, #{reserve4})
     </insert>
-    <select id="selectUserByNamePassWord" parameterType="string" resultType="list">
+    <select id="selectUserByNamePassWord" parameterType="string" resultType="com.example.demo.entity.User">
         select *
         from useraccount
         where username = #{username}
           and userpassword = #{password}
+    </select>
+    <select id="selectUserByUsername" parameterType="string" resultType="com.example.demo.entity.User">
+        select *
+        from useraccount
+        where username = #{username}
     </select>
 </mapper>

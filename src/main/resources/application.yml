@@ -36,3 +36,8 @@ logging:
     com.example.demo: debug
 #文件存储路径
 filepath: F:\学习资料\Java学习资料
+#token
+token:
+  privateKey: 'fdasfgdsagaxgsregdfdjyghjfhebfdgwe45ygrfbsdfshfdsag'
+  yangToken: 1000000
+  oldToken: 3000000000

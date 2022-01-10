@@ -1,6 +1,8 @@
 package com.example.demo.entity;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private Long userid;
     private String username;
     private String userpassword;

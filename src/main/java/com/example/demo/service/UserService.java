@@ -4,6 +4,7 @@ import com.example.demo.entity.User;
 import com.example.demo.mapper.TbClientMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.buillder.AddClient;
+import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class UserService {
 
     /**
      * 用户登录
-     * */
+     */
     @Transactional
     public String login(String username, String password) {
         int i = userMapper.selectUserByUserName(username);
@@ -81,10 +82,18 @@ public class UserService {
      * 生成唯一用户号
      */
     public static long createUserId(String username) {
-        String hash = String.valueOf(username.hashCode()).substring(0, 5);
+        String hash = String.valueOf(username.hashCode()).substring(1, 6);
+        if (hash.length() < 5) {
+            hash = String.format("%05d", hash);
+        }
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMddhhmmss");
         String format1 = format.format(new Date());
         long userId = Long.parseLong(format1 + hash);
         return userId;
+    }
+
+    public User selectUserByUserName(String userName) {
+        User user = userMapper.selectUserByUsername(userName);
+        return user;
     }
 }
